@@ -1,0 +1,33 @@
+html,
+body {
+  max-width: 1440px;
+  // height:2000px; //DEV
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {display: none}
+}
+
+.main {
+
+  &_wrapper {
+    @include flex_center_column;
+    height: auto;
+    width: 100%;
+    margin: calc(2rem + 20px) 0; 
+  }
+  
+  &_modal-opacity {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+}
+
+.page_loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}

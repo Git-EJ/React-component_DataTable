@@ -1,0 +1,7 @@
+.vite.config.js
+.index.html
+.gitignore
+.eslintrc.cjs
+.node_modules
+.Apps.jsx
+.main.jsx

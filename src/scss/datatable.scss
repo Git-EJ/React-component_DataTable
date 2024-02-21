@@ -1,0 +1,308 @@
+.data-table {
+
+  &_default {
+
+    &_wrapper {
+      @include flex_center_column;
+      width: 100%;
+      height: auto;
+      cursor: default;
+    }
+    
+    &_options {
+
+      &_container {
+        @include flex_center_row;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        font-size: $datatable_font_size;
+        gap: 1rem;
+      }
+      
+      &_right_container {
+        @include flex_center_row;
+        width: fit-content;
+        height: auto;
+        gap: 1rem;
+      }
+
+      &_reset-button {
+        &_container {
+          @include flex_center_row;
+          width: fit-content;
+          height: 100%;
+
+          >p {
+            margin-right: 0.5rem;
+          }
+        }
+
+        &_button {
+          @include flex_center;
+          width: fit-content;
+          height: 100%;
+          background-color: transparent;
+
+
+          &>svg {
+            width: 1rem;
+            height: 1rem;
+            path {
+              fill: $primary-color;
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          &_animated{
+            animation: resetRotate .5s ease;
+          }
+
+          @keyframes resetRotate {
+            0% {transform: rotate(0deg)}
+            99% {transform: rotate(360deg)}
+            100% {transform: rotate(0deg)}
+          }
+        }
+      }
+
+
+
+      &-entries,
+      &_search_select,
+      &_search_input {
+        @include flex_center_row;
+        justify-content: space-between;
+        width: fit-content;
+        height: auto;
+      }
+
+      &_entries,
+      &_search_select {
+        >select {
+          border: 2px solid $primary-color;
+          margin: 0 0.2rem;
+          cursor: pointer;
+
+          &:disabled {
+            border: 2px solid $primary-color;
+            opacity: 1;
+            color:  rgba(199, 189, 189, 0.938);
+            cursor: default;
+          }
+        }
+      }
+
+      &_search_select,
+      &_search_input {
+        >label {
+          margin-right: 0.5rem;
+        }
+      }
+
+      &_search_input {
+        >input {
+          border: 2px solid $primary-color;
+          width: 100%;
+        }
+      }
+    }
+
+
+    &_table_container {
+      width: 100%;
+      margin-top: 1rem;
+      border: 2px solid $primary-color;
+      border-radius: 10px;
+      overflow-x: scroll;
+    }
+
+    &_titles_container {
+      @include flex_center_row;
+      justify-content: space-between;
+      align-items: stretch;
+      width: 100%;
+
+      & >div {
+        border-right: 2px solid $primary-color;
+      }
+
+      >div:last-child {
+        border-right: none;
+      }
+    }
+
+    &_title {
+      
+      &_item {
+        @include data_table_contents_width;
+
+        &_value {
+          width: fit-content;
+          text-align: center;
+          padding: 0.5rem;
+          @include text_ellipsis;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 800;
+          font-size: $datatable_font_size;
+        }
+
+        &_sorting {
+
+          &_container {
+            @include flex_center_column;
+            width: fit-content;
+            height: auto;
+            cursor: pointer;
+            
+            svg {
+              width: 1rem;
+              height: 1rem;
+            }
+
+            path {
+              fill: $primary-color;
+            }
+          }
+
+          &_icon-asc, 
+          &_icon-desc {
+            @include flex_center;
+          }
+        }
+      }
+    }
+
+
+    &_content-lines_container {
+      @include flex_center_column;
+      min-width: 100%;
+      width: fit-content;
+      height: auto;
+      border-top: 4px solid $primary-color;
+
+      &_no_data {
+        font-size: 1.5rem;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        color: $primary-color;
+      }
+    }
+
+
+    &_content-line {
+
+      &_container {
+        @include flex_center_row;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 100%;
+        min-width: 120px;
+
+        &_selected {
+          background: rgba(2, 16, 20, 0.65) !important;
+          color: #fff
+        }
+
+        &:nth-child(even) {
+          background: rgba(14, 60, 85, .2);
+        }
+
+      }
+      
+      &_item {
+        
+        @include data_table_contents_width;
+
+        &_value {
+          @include text_ellipsis;
+          text-align: center;
+          width: 100%;
+          font-size: $datatable_font_size;
+          padding: 0.5rem;
+        }
+      }
+    }
+
+
+    &_below {
+
+      &_container {
+        @include flex_center_row;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        margin-top: 0.5rem;
+        gap: 1rem;
+      }
+
+      &_left_container {
+        @include flex_center_column;
+        align-items: flex-start;
+        width: fit-content;
+        height: auto;
+      }
+
+      &_showing_entries {
+
+        &_container {
+          max-width: 100%;
+          height: auto;
+          cursor: default;
+        }
+
+        &_text {
+          width: fit-content;
+          font-size: $datatable_font_size;
+          font-family: 'Tektur_Bold', sans-serif;
+        }
+      }
+    }
+  }
+}
+
+.caret_active {
+  path {
+    fill: $primary-color;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .data-table {
+    &_default {
+
+      &_options {
+
+        &_container {
+          @include flex_center_column;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .data-table {
+    &_default {
+
+      &_options {
+        
+        &_right_container {
+          @include flex_center_column;
+        }
+      }
+  
+      &_below {
+
+        &_container {
+          @include flex_center_column;
+        }
+      }  
+    }
+  }
+}

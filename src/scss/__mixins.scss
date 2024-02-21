@@ -1,0 +1,13 @@
+@mixin text_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+
+@mixin data_table_contents_width {
+
+    @include flex_center;
+  justify-content: space-around;  
+  min-width: 120px;
+  flex: 1;
+}
