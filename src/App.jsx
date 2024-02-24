@@ -1,11 +1,10 @@
 import DataTable from "./molecules/DataTable"
 
 const arrayOfEmployeesDataTitle = [
-  //for editing the data create date read only or not
+
   {
     key: "firstName",
     value: "FirstName",
-    editable: true,
   },
   {
     key: "lastName",

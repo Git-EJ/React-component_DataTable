@@ -22,8 +22,6 @@
             height: 100%;
             text-align: center;
             border: 2px solid $primary-color;
-            border-radius: 0.2rem;
-            padding: 0.2rem 0;
             
             &::selection { //for input value when focus on
               background: transparent;

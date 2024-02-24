@@ -1,7 +1,10 @@
-.vite.config.js
-.index.html
+index.html
+vite.config.js
+package-lock.json
 .gitignore
 .eslintrc.cjs
-.node_modules
-.Apps.jsx
-.main.jsx
+src/App.jsx 
+src/main.jsx
+node_modules/
+public/
+dist/index.html
